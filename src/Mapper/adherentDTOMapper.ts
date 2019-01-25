@@ -4,23 +4,21 @@ import { AdherentDTO } from 'DTO/adherent.DTO';
 export class AdherentDTOMapper {
     getAdherentsDTO(adhList: AdherentEntity[]) {
         const adhDTOList = new Array<AdherentDTO>();
-        adhDTOList.forEach(adh => {
+        adhList.forEach(adh => {
             const adhDTO = new AdherentDTO();
 
             adhDTO.id = adh.id;
-            adhDTO.numeroAdherent = adh.numeroAdherent;
-            adhDTO.nom = adh.nom;
-            adhDTO.prenom = adh.prenom;
+            adhDTO.numberAdherent = adh.numeroAdherent;
+            adhDTO.name = adh.nom;
+            adhDTO.firstname = adh.prenom;
             adhDTO.email = adh.email;
             adhDTO.age = adh.age;
-            adhDTO.sexe = adh.sexe;
+            adhDTO.sex = adh.sexe;
             adhDTO.association = adh.association;
-            adhDTO.connuPar = adh.connuPar;
-            adhDTO.inscriptionDate  = new Date(adh.inscriptionDate);
-            adhDTO.fraisInscription = adh.fraisInscription;
-            adhDTO.autre = adh.autre;
-            adhDTO.actif = adh.actif;
-            adhDTO.supprime = adh.supprime;
+            adhDTO.knownBy = adh.connuPar;
+            adhDTO.registrationDate  = new Date(adh.inscriptionDate);
+            adhDTO.registrationFee = adh.fraisInscription;
+            adhDTO.other = adh.autre;
             adhDTO.statut = adh.statut;
             adhDTO.adresse_id = adh.adresse_id;
 

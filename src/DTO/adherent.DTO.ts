@@ -1,18 +1,16 @@
 export class AdherentDTO {
     id: number;
-    numeroAdherent: number;
-    nom: string;
-    prenom: string;
+    numberAdherent: number;
+    name: string;
+    firstname: string;
     email: string;
     age: number;
-    sexe: string;
+    sex: string;
     association: string;
-    connuPar: string;
-    inscriptionDate: Date;
-    fraisInscription: number;
-    autre: string;
-    actif: number;
-    supprime: number;
+    knownBy: string;
+    registrationDate: Date;
+    registrationFee: number;
+    other: string;
     statut: string;
     adresse_id: number;
 }

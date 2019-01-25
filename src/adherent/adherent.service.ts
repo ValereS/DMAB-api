@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { AdherentEntity } from './adherent.entity';
 import { Repository } from 'typeorm/repository/Repository';
-import { AdherentDTOMapper } from 'Mapper/adherentDTOMapper';
+import { AdherentDTO } from 'DTO/adherent.DTO';
 
 @Injectable()
 export class AdherentService {
@@ -18,5 +18,9 @@ export class AdherentService {
 
     async getAdherents(): Promise<AdherentEntity[]> {
         return await this.adherentRepository.find();
+    }
+
+    async setAdherent(adherentEntity: AdherentEntity) {
+        return this.adherentRepository.insert(adherentEntity);
     }
 }
