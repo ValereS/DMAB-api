@@ -6,7 +6,7 @@ import { AdherentService } from './adherent.service';
 
 @Module({
     imports: [
-        TypeOrmModule.forFeature([AdherentEntity])
+        TypeOrmModule.forFeature([AdherentEntity]),
       ],
       controllers: [AdherentController],
       providers: [AdherentService],
