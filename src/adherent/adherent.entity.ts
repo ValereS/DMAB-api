@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToMany, ManyToOne, OneToOne, JoinColumn, JoinTable } from 'typeorm';
+import { AdresseEntity } from 'adresse/adresse.entity';
 
 @Entity('adherent')
 export class AdherentEntity {
@@ -32,24 +33,21 @@ export class AdherentEntity {
   @Column('datetime')
   inscriptionDate: Date;
 
-//   @Column({name: 'inscriptionDate'})
-//   inscriptionDateString: string;
-
   @Column('int')
   fraisInscription: number;
 
   @Column('text')
   autre: string;
 
-  @Column()
+  @Column({select: false})
   actif: number;
 
-  @Column('int')
+  @Column('int', {select: false})
   supprime: number;
 
-  @Column('varchar')
+  @Column('varchar', {select: false})
   statut: string;
 
-  @Column('int')
-  adresse_id: number;
+  @ManyToOne(type => AdresseEntity, adresse => adresse.adherents)
+  adresse: AdresseEntity;
 }
